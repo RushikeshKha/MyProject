@@ -1,21 +1,37 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, Image, ScrollView, TextInput } from 'react-native';
+import React, {useState} from 'react';
 
 export default function App() {
+  const [text,setText] = useState('')
   return (
-    <View style={styles.container}>
-      <Text>Editing and uploading the edit onto github</Text>
-      <StatusBar style="auto" />
-    </View>
+    <ScrollView>
+      <Text>Some text</Text>
+      <Text>{text}</Text>
+      <Image 
+        source={{
+          uri:'https://reactnative.dev/docs/assets/p_cat2.png',
+        }}
+        style={{ width: 200, height:200}}
+      />
+
+      <TextInput 
+        style={{
+          height:50,
+          borderColor:'grey',
+          borderWidth:1
+        }}
+        defaultValue="You cant type me"
+        onChangeText={text => setText(text)}
+        defaultValue={text}
+      />
+      <Text style={styles.newtext}>{text}</Text>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+  newtext:{
+    color:'red',
+    fontWeight:'bold'
+  }
+})
