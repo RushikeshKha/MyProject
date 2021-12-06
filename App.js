@@ -5,7 +5,7 @@ import { StyleSheet, Text, View } from 'react-native';
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>sdfsdfkj !</Text>
+      <Text>Editing and uploading the edit onto github</Text>
       <StatusBar style="auto" />
     </View>
   );
